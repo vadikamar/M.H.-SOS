@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <link rel = "icon" href = "https://drive.google.com/uc?export=view&id=1j-K4orMDhFY7aIR6ttV-wM3Dj6YJWshX" type = "image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+    <link href='https://fonts.googleapis.com/css?family=Sacramento:400'>
+    <title>Home | M.H. SOS</title>
+    <img src="https://drive.google.com/uc?export=view&id=1j-K4orMDhFY7aIR6ttV-wM3Dj6YJWshX" alt="mh sos" width="1280" height="200" id="head">
+</head>
+<style>
+    body {
+        font-family:roboto;
+        
+        color: white;
+        margin:0;
+        display:flex;
+        flex-direction:column;
+        }
+      body{
+            
+            background: #031321;
+            
+        }
+        
+        #head{
+            margin-top:0%;
+        }
+</style>
+    <body>
+        
+        <form action="/my-link/">
+
+        <div class="container">
+           
+            <br>
+            <p>
+            <h4>Express your feelings here:</h4>
+            <input id="x" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Ex- I am feeling sad" /></p>
+            <a href="/my-link/"><button id="check" type="submit"  class="btn btn-primary" onClick="suicide()">Check</button></a>
+            <p>
+            <h4>Result:</h4>
+            <textarea id="result" class="form-control" rows="2" aria-label="Large" aria-describedby="Result" placeholder="Result"></textarea>
+            </p>
+         </div>
+        </form>
+        <script>
+
+            function suicide(){
+                var s=document.getElementById("x").value;
+                var a=["sad","crying","cry","sucide","depression","cheated","guilty","cheating","sadden","unhappy","mournful","melancholy","down","doleful","downcast","gloom","glum","forlorn","heartsick","pensive","heavy","blue","gloomy","sorrowful","dejected","desolate","downhearted","depressed","tragic","disconsolate","dreary","lonesome","tragedy","sorry","lugubrious","lonely","sadness","wistful","sadly","lachrymose","heavy-hearted","depress","plaintive","howl","dusky","dismal","somber","moody","tearjerker","inconsolable","crestfallen","regret","joyless","sorrow","plangent","very","help","hard","so","just","worth","anxiety","ending","life","loser","toxic","goodbye","bye","murder","murdered","rope","jailed","jail","knife","hammer","rope","alone","hurt","trouble","isolate","isolated","trash","bully","bullied","drowing","drown","idiot","graveyard","arrested","end","ends","ended","breakup","dead","died","death","horrified","anymore","screwed","really","bad","bleak","love","live","life","relevance"]
+                var b=["suicide","kill"]
+                s=s.toLowerCase()
+                var x=s.split(" ")
+                var c=0
+                var f=0
+                for(var i=0;i<a.length;i++)
+                {
+                    if(a.includes(x[i]))
+                    c+=1
+                    if(b.includes(x[i]))
+                    f+=1
+                }
+                if(c>=(0.4*x.length) || f>0){
+                document.getElementById("result").innerHTML ="Suicidal";
+                return "Suicidal"
+                }
+                else if(c>0 && c<(0.4*x.length)){
+                document.getElementById("result").innerHTML ="Sad";
+                return "Sad"}
+                else{
+                document.getElementById("result").innerHTML ="Safe"
+                return "Safe"};
+                
+            }
+            
+                    
+            var xx=suicide()
+            var no=0;
+            if(xx=="Suicidal")
+            no=1
+            function pass_values() {
+                var pass_to_python = new Number(no)
+             
+                             $.ajax(
+                             {
+                                 type:'POST',
+                                 contentType:'application/json;charset-utf-08',
+                                 dataType:'json',
+                                 url:'http://127.0.0.1:5000/pass_val?value='+pass_to_python ,
+                                 success:function (data) {
+                                     var reply=data.reply;
+                                     if (reply=="success")
+                                     {
+                                         return;
+                                     }
+                                     else
+                                         {
+                                         alert("some error ocured in session agent")
+                                         }
+             
+                                 }
+                             }
+                         );
+             }
+            
+            
+            </script>
+    </body>
