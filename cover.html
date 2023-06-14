@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="coverstyle.css">
+    <link rel = "icon" href = "D:\vadik\mhsos\M.H. SOS logo 2.jpg" type = "image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Sacramento:400' rel='coversheet' type='text/css'>
+    <title>M.H. SOS</title>
+</head>
+<body>
+    <video width="30%" height="30%" autoplay muted loop id="vid">  
+        <source src="M.H. SOS COVER VIDEO.mp4" type="video/mp4">  
+        Your browser does not support the html video tag.  
+
+    </video>  
+    <video autoplay playsinline style="pointer-events: none;"></video>
+      <h1 class="neonText"><center>M.H. SOS</center></h1>
+      <a href="http://127.0.0.1:5000">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Click Here
+      </a>
+      
+      <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 6</div>
+          <img src="1.png" style="width: 40%">
+          
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 6</div>
+          <img src="2.png" style="width:40%">
+         
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 6</div>
+          <img src="3.png" style="width:40%">
+          
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 6</div>
+            <img src="4.png" style="width:40%">
+            
+          </div>
+          <div class="mySlides fade">
+            <div class="numbertext">5 / 6</div>
+            <img src="5.png" style="width:40%">
+            
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">6 / 6</div>
+            <img src="6.png" style="width:40%">
+            
+          </div>
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+        </div>
+        <a href="D:\vadik\mhsos\M.H. SOS pitching.pdf">Read more...</a>
+</body>
+<script>
+    document.getElementById('vid').play();
+
+    let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 5000); // Change image every 2 seconds
+}
+</script>
+</html>
